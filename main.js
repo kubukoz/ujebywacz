@@ -43,7 +43,7 @@ app.run(function($rootScope, $interval, $localStorage){
         tempDelta-=rs.c.minutes*60000;
         rs.c.seconds = Math.floor(tempDelta/1000);
         rs.c.string = rs.c.days+"d+" + rs.c.hours+":"+rs.c.minutes+":"+rs.c.seconds;
-    }
+    };
     refresh();
     $interval(refresh,1000);
 });
