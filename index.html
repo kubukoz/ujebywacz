@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="ujebywacz">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Ujebanie za {{c.string}}</title>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.min.js"></script>
+    <link href="styles/main.css" rel="stylesheet"/>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'/>
+</head>
+<body>
+<p>Data, w której chcesz ujebać ustny polski:</p>
+<div><input ng-model="day" type="text" placeholder="dzień" size="10"/><span>.05.2015,</span>
+<input ng-model="hour" type="text" placeholder="godzina" size="10"/><span>:</span>
+<input ng-model="minute" type="text" placeholder="minuty" size="10"/>
+<button type="button" ng-click="saveUjebanie()">Zapisz</button></div>
+<h1>UJEBIESZ USTNY POLSKI ZA:</h1>
+<p>Dni: <b>{{remaining.days}}</b></p>
+<p>Godzin: <b>{{remaining.hours}}</b></p>
+<p>Minut: <b>{{remaining.minutes}}</b></p>
+<p>Sekund: <b>{{remaining.seconds}}</b></p>
+</body>
+<script src="main.js"></script>
+</html>

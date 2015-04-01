@@ -1,0 +1,41 @@
+$font-main: "Roboto" sans-serif;
+$light: 300;
+$bold: 700;
+
+html,body{
+  height: 100%;
+  font-size: 16px;
+}
+
+body{
+  background: black;
+  color: #03A9F4;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+}
+h1{
+  font-family: $font-main;
+  font-weight: $light;
+  b{
+    font-weight: $bold;
+  }
+}
+span{
+  margin-right: 10px;
+}
+span:nth-of-type(2){
+  margin-left: 10px;
+}
+p,span{
+  font-family: $font-main;
+  font-weight: $light;
+  b{
+    font-weight: $bold;
+  }
+}
