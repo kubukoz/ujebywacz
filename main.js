@@ -8,6 +8,8 @@ app.run(function($rootScope, $interval, $localStorage){
 
     rs.saveUjebanie = function(){
         $localStorage.day = rs.day;
+        $localStorage.hour = rs.hour;
+        $localStorage.minute = rs.minute;
     }
     rs.placeholder = "Dzień maja, w którym chcesz ujebać ustny polski";
     rs.c={
