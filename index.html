@@ -2,19 +2,21 @@
 <html ng-app="ujebywacz">
 <head lang="en">
     <meta charset="UTF-8"/>
-    <title>Ujebanie za {{c.string}}</title>
+    <title ng-bind="'Ujebanie za ' + c.string">Ujebywacz Pro&#8482;</title>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/ngstorage/ngStorage.min.js"></script>
     <link href="styles/main.css" rel="stylesheet"/>
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
 </head>
 <body>
-<p>Data, w której chcesz ujebać ustny polski:</p>
-<div><input ng-model="day" type="text" placeholder="dzień" size="10"/><span>.05.2015,</span>
-<input ng-model="hour" type="text" placeholder="godzina" size="10"/><span>:</span>
-<input ng-model="minute" type="text" placeholder="minuty" size="10"/>
-<button type="button" ng-click="saveUjebanie()">Zapisz</button></div>
-<h1>UJEBIESZ USTNY POLSKI ZA:</h1>
+<h2>Ujebywacz Pro&#8482;<small>by kubukoz</small></h2>
+<form name="form"><p>Data, w której chcesz ujebać <input type="text" placeholder="przedmiot" ng-model="subject"/>:</p>
+<div><input ng-model="day" type="number" placeholder="dzień" size="10" required min="0" max="31"/><span>.05.2015,</span>
+<input ng-model="hour" type="number" placeholder="godzina" size="5" min="0" max="23"/><span>:</span>
+<input ng-model="minute" type="number" placeholder="minuty" size="5" min="0" max="59"/>
+<button type="button" ng-click="saveUjebanie()">Zapisz</button></div></form>
+<h1>Ujebiesz {{subject}} za:</h1>
 <p>Dni: <b>{{remaining.days}}</b></p>
 <p>Godzin: <b>{{remaining.hours}}</b></p>
 <p>Minut: <b>{{remaining.minutes}}</b></p>

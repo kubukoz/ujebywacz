@@ -2,11 +2,12 @@
 var app = angular.module("ujebywacz",["ngStorage"]);
 app.run(function($rootScope, $interval, $localStorage){
     var rs = $rootScope;
-    rs.day = $localStorage.day || 14;
-    rs.hour = $localStorage.hour || 11;
-    rs.minute = $localStorage.minute || 0;
-
+    rs.day = +$localStorage.day || 14;
+    rs.hour = +$localStorage.hour || 11;
+    rs.minute = +$localStorage.minute || 0;
+    rs.subject = $localStorage.subject || "ustny polski";
     rs.saveUjebanie = function(){
+        $localStorage.subject = rs.subject;
         $localStorage.day = rs.day;
         $localStorage.hour = rs.hour;
         $localStorage.minute = rs.minute;
@@ -25,11 +26,13 @@ app.run(function($rootScope, $interval, $localStorage){
         minutes: 0,
         seconds: 0
     };
+    var pad = function(n, width, z) {
+        z = z || '0';
+        n = n + '';
+        return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+    }
     var refresh = function(){
-        var tempDay = rs.day<10?"0"+rs.day:rs.day;
-        var tempHour = rs.hour<10?"0"+rs.hour:rs.hour;
-        var tempMinute = rs.minute<10?"0"+rs.minute:rs.minute;
-        var dateEnd = new Date("2015-05-"+tempDay+"T"+tempHour+":"+tempMinute+":00");
+        var dateEnd = new Date("2015-05-"+pad(rs.day, 2)+"T"+pad(rs.hour, 2)+":"+pad(rs.minute, 2)+":00");
         var current = new Date();
         var delta = dateEnd-current;
         rs.remaining.seconds = Math.floor(delta/1000);
@@ -47,5 +50,7 @@ app.run(function($rootScope, $interval, $localStorage){
         rs.c.string = rs.c.days+"d+" + rs.c.hours+":"+rs.c.minutes+":"+rs.c.seconds;
     };
     refresh();
-    $interval(refresh,1000);
+    $interval(function(){
+        if(rs.form.$valid) refresh();
+    },1000);
 });

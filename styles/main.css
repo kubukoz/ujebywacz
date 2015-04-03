@@ -14,11 +14,26 @@ body {
   flex-direction: column;
   -webkit-flex-direction: column; }
 
-h1 {
+form {
+  margin-bottom: 60px; }
+
+h1, h2 {
+  text-transform: uppercase;
   font-family: "Roboto" sans-serif;
   font-weight: 300; }
-  h1 b {
+  h1 b, h2 b {
     font-weight: 700; }
+  h1 small, h2 small {
+    font-size: .6em;
+    text-transform: none;
+    margin-left: 20px; }
+
+input, button {
+  background: none;
+  color: #03A9F4;
+  border: 1px solid #03A9F4;
+  font-size: 1em;
+  padding: 5px 10px; }
 
 span {
   margin-right: 10px; }
