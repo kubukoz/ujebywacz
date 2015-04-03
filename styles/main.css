@@ -55,7 +55,8 @@ input, button {
   color: #03A9F4;
   border: 1px solid #03A9F4;
   font-size: 1em;
-  padding: 5px 10px; }
+  padding: 5px 10px;
+  margin-bottom: 10px; }
 
 span {
   margin-right: 10px; }
