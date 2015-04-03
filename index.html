@@ -10,11 +10,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
 </head>
 <body>
-<h2>Ujebywacz Pro&#8482;<small>by kubukoz</small></h2>
+<h2>Ujebywacz Pro&#8482;<small>by <a href="https://github.com/kubukoz">kubukoz</a></small></h2>
 <form name="form"><p>Data, w której chcesz ujebać <input type="text" placeholder="przedmiot" ng-model="subject"/>:</p>
-<div><input ng-model="day" type="number" placeholder="dzień" size="10" required min="0" max="31"/><span>.05.2015,</span>
-<input ng-model="hour" type="number" placeholder="godzina" size="5" min="0" max="23"/><span>:</span>
-<input ng-model="minute" type="number" placeholder="minuty" size="5" min="0" max="59"/>
+<div><input ng-model="day" type="number" placeholder="dd" size="10" required min="0" max="31"/><span>.05.2015,</span>
+<input ng-model="hour" type="number" placeholder="hh" size="5" min="0" max="23"/><span>:</span>
+<input ng-model="minute" type="number" placeholder="mm" size="5" min="0" max="59"/>
 <button type="button" ng-click="saveUjebanie()">Zapisz</button></div></form>
 <h1>Ujebiesz {{subject}} za:</h1>
 <p>Dni: <b>{{remaining.days}}</b></p>
