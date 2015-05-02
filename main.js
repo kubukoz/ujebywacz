@@ -13,6 +13,7 @@ app.run(function($rootScope, $interval, $localStorage){
         $localStorage.minute = rs.minute;
     }
     rs.placeholder = "Dzień maja, w którym chcesz ujebać ustny polski";
+    rs.toAbs = function(num){ return Math.abs(num)};
     rs.c={
         days: 0,
             hours: 0,
@@ -34,7 +35,7 @@ app.run(function($rootScope, $interval, $localStorage){
     var refresh = function(){
         var dateEnd = new Date("2015-05-"+pad(rs.day, 2)+"T"+pad(rs.hour, 2)+":"+pad(rs.minute, 2)+":00");
         var current = new Date();
-        var delta = (dateEnd-current) - 3600000*2;
+        var delta = rs.delta = (dateEnd-current) - 3600000*2;
         rs.remaining.seconds = Math.floor(delta/1000);
         rs.remaining.minutes = Math.floor(delta/1000/60);
         rs.remaining.hours = Math.floor(delta/1000/3600);

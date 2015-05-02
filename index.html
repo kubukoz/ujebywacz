@@ -17,11 +17,12 @@
 <input ng-model="hour" type="number" placeholder="hh" size="5" min="0" max="23"/><span>:</span>
 <input ng-model="minute" type="number" placeholder="mm" size="5" min="0" max="59"/>
 <button type="button" ng-click="saveUjebanie()">Zapisz</button></div></form>
-<h1>Ujebiesz {{subject}} za:</h1>
-<p>Dni: <b>{{remaining.days}}</b></p>
-<p>Godzin: <b>{{remaining.hours}}</b></p>
-<p>Minut: <b>{{remaining.minutes}}</b></p>
-<p>Sekund: <b>{{remaining.seconds}}</b></p>
+<h1 ng-show="delta>=0">Ujebiesz {{subject}} za:</h1>
+<h1 ng-hide="delta>=0">Ujebałeś {{subject}} tyle czasu temu:</h1>
+<p>Dni: <b>{{toAbs(remaining.days)}}</b></p>
+<p>Godzin: <b>{{toAbs(remaining.hours)}}</b></p>
+<p>Minut: <b>{{toAbs(remaining.minutes)}}</b></p>
+<p>Sekund: <b>{{toAbs(remaining.seconds)}}</b></p>
 </body>
 <script src="main.js"></script>
 </html>
