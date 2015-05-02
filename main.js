@@ -6,11 +6,13 @@ app.run(function($rootScope, $interval, $localStorage){
     rs.hour = +$localStorage.hour || 11;
     rs.minute = +$localStorage.minute || 0;
     rs.subject = $localStorage.subject || "ustny polski";
+    if($localStorage.ujebanie != null) rs.ujebanie = $localStorage.ujebanie; else rs.ujebanie = true;
     rs.saveUjebanie = function(){
         $localStorage.subject = rs.subject;
         $localStorage.day = rs.day;
         $localStorage.hour = rs.hour;
         $localStorage.minute = rs.minute;
+        $localStorage.ujebanie = rs.ujebanie;
     }
     rs.placeholder = "Dzień maja, w którym chcesz ujebać ustny polski";
     rs.toAbs = function(num){ return Math.abs(num)};

@@ -12,13 +12,13 @@
 </head>
 <body>
 <h2>Ujebywacz Pro&#8482;<small>by <a href="https://github.com/kubukoz">kubukoz</a></small></h2>
-<form name="form"><p>Data, w której chcesz ujebać <input type="text" placeholder="przedmiot" ng-model="subject"/>:</p>
+<form name="form"><p>Data, w której chcesz <input type="checkbox" ng-model="ujebanie"/> {{ujebanie?'ujeb':'zd'}}ać <input style="margin-left: 10px" type="text" placeholder="przedmiot" ng-model="subject"/>:</p>
 <div><input ng-model="day" type="number" placeholder="dd" size="10" required min="0" max="31"/><span>.05.2015,</span>
 <input ng-model="hour" type="number" placeholder="hh" size="5" min="0" max="23"/><span>:</span>
 <input ng-model="minute" type="number" placeholder="mm" size="5" min="0" max="59"/>
 <button type="button" ng-click="saveUjebanie()">Zapisz</button></div></form>
-<h1 ng-show="delta>=0">Ujebiesz {{subject}} za:</h1>
-<h1 ng-hide="delta>=0">Ujebałeś {{subject}} tyle czasu temu:</h1>
+<h1 ng-show="delta>=0">{{ujebanie?"Ujebie":"Zda"}}sz {{subject}} za:</h1>
+<h1 ng-hide="delta>=0">{{ujebanie?"Ujeb":"Zd"}}ałeś/aś {{subject}} tyle czasu temu:</h1>
 <p>Dni: <b>{{toAbs(remaining.days)}}</b></p>
 <p>Godzin: <b>{{toAbs(remaining.hours)}}</b></p>
 <p>Minut: <b>{{toAbs(remaining.minutes)}}</b></p>
