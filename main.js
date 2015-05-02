@@ -34,7 +34,7 @@ app.run(function($rootScope, $interval, $localStorage){
     var refresh = function(){
         var dateEnd = new Date("2015-05-"+pad(rs.day, 2)+"T"+pad(rs.hour, 2)+":"+pad(rs.minute, 2)+":00");
         var current = new Date();
-        var delta = dateEnd-current;
+        var delta = (dateEnd-current) - 3600000*2;
         rs.remaining.seconds = Math.floor(delta/1000);
         rs.remaining.minutes = Math.floor(delta/1000/60);
         rs.remaining.hours = Math.floor(delta/1000/3600);
